@@ -24,15 +24,17 @@ request.onload = function () {
 
   // c. Print the following details name, capital, flag using forEach function
   const result = response.forEach((country) => {
-    console.log(country.name.common);
-    console.log(country.capital);
-    console.log(country.flag);
+    console.log(`Country Name: ${country.name.common}`);
+    if (country.capital !== undefined) {
+      console.log(`Country Cpital: ${country.capital[0]}`);
+    }
+    console.log(`Country Flag: ${country.flag}`);
   });
   console.log(result);
 
   // d. Print the total population of countries using reduce function
   const populations = response.map((country) => country.population);
-  console.log(populations);
+  //console.log(populations);
   const populationUsingreduce = populations.reduce(
     (accumulator, currentValue) => accumulator + currentValue
   );
